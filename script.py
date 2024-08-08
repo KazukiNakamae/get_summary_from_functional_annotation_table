@@ -38,6 +38,7 @@ def count_genes(input_file, output_file):
 
     # UniProtKB-gsymbol列の文字列解析
     os_counts = defaultdict(int)
+    os_counts["Others"] = 0
     for uniprot_gdescription in df.dropna(subset=['UniProtKB-ID'])['UniProtKB-gdescription']:
         match = re.search(r'OS=(.+)\sOX=.+PE=([1-5])', str(uniprot_gdescription))
         if match:
