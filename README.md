@@ -26,22 +26,22 @@ docker run --rm -v $(pwd):/mnt/data kazukinakamae/annotation-counter:v1.0 /mnt/d
 #### Output
 
 ```
-Annotation category                       Annotation level      Details	                                                Detailed gene count	  Gene count
-Protein homologue from tophit             Ensembl:XXX                                                                                         7
-                                                                Characterized                                           7	
-                                                                Less-characterized	                                    0	
-                                                                Non-characterized	                                      0	
-Protein homologue from tophit             Ensembl:XXX                                                                                         5
-                                                                Characterized                                           2	
-                                                                Less-characterized	                                    2	
-                                                                Non-characterized	                                      1	
-Protein homologue from tophit	            UniProtKB/Swiss-Prot			                                                                          7
-                                                                XXX                                                     4	
-                                                                YYY                                                     2	
-                                                                Others	                                                1	
-At least one of the above				                                                                                                              7
-No protein homologue, but with protein domain				                                                                                          2
-Total genes with protein-level annotation				                                                                                              9
-Hypothetical protein				                                                                                                                  1
-Total				                                                                                                                                  10
+Annotation category,Annotation level,Details,Detailed gene count,Gene count
+Protein homologue from tophit,Ensembl:XXX,,,7
+,,Characterized,7,
+,,Less-characterized,0,
+,,Non-characterized,0,
+Protein homologue from tophit,Ensembl:YYY,,,5
+,,Characterized,2,
+,,Less-characterized,2,
+,,Non-characterized,1,
+Protein homologue from tophit,UniProtKB/Swiss-Prot,,,7
+,,XXX,4,
+,,YYY,2,
+,,Others,1,
+At least one of the above,,,,7
+"No protein homologue, but with protein domain",,,,2
+Total genes with protein-level annotation,,,,9
+Hypothetical protein,,,,1
+Total,,,,10				                                                                                                                                  10
 ```
