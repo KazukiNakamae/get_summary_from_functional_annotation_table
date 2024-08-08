@@ -26,21 +26,21 @@ docker run --rm -v $(pwd):/mnt/data kazukinakamae/annotation-counter:v1.0 /mnt/d
 #### Output
 
 ```
-Annotation category	Annotation level	Details	Detailed gene count	Gene count
-Protein homologue from tophit	Ensembl:XXX			7
-    Characterized	7	
-    Less-characterized	0	
-    Non-characterized	0	
-Protein homologue from tophit	UniProtKB/Swiss-Prot			7
-    PE=2:'Experimental evidence at transcript level' [XXX]	2	
-    PE=3:'Protein inferred from homology' [YYY]	1	
-    PE=5:'Protein uncertain' [YYY]	1	
-    PE=1:'Experimental evidence at protein level' [XXX]	1	
-    PE=4:'Protein predicted' [XXX]	1	
-    Others	1	
-At least one of the above				7
-No protein homologue, but with protein domain				2
-Total genes with protein-level annotation				9
-Hypothetical protein				1
-Total				10
+Annotation category                       Annotation level      Details	                                                Detailed gene count	  Gene count
+Protein homologue from tophit             Ensembl:XXX                                                                                         7
+                                                                Characterized                                           7	
+                                                                Less-characterized	                                    0	
+                                                                Non-characterized	                                      0	
+Protein homologue from tophit	            UniProtKB/Swiss-Prot			                                                                          7
+                                                                PE=2:'Experimental evidence at transcript level' [XXX]	2	
+                                                                PE=3:'Protein inferred from homology' [YYY]	            1	
+                                                                PE=5:'Protein uncertain' [YYY]	                        1	
+                                                                PE=1:'Experimental evidence at protein level' [XXX]	    1	
+                                                                PE=4:'Protein predicted' [XXX]	                        1	
+                                                                Others	                                                1	
+At least one of the above				                                                                                                              7
+No protein homologue, but with protein domain				                                                                                          2
+Total genes with protein-level annotation				                                                                                              9
+Hypothetical protein				                                                                                                                  1
+Total				                                                                                                                                  10
 ```
