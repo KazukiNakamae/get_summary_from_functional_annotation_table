@@ -1,4 +1,4 @@
-﻿Target-pid,XXX-ENSPID,XXX-gsymbol,XXX-gdescription,UniProtKB-ID,UniProtKB-gsymbol,UniProtKB-gdescription,XXX-ENSPID,XXX-gsymbol,XXX-gdescription,Pfam-IDs,Pfam-Names
+﻿Target-pid,XXX-ENSPID,XXX-gsymbol,XXX-gdescription,UniProtKB-ID,UniProtKB-gsymbol,UniProtKB-gdescription,YYY-ENSPID,YYY-gsymbol,YYY-gdescription,Pfam-IDs,Pfam-Names
 A,XXX1,XXX_A,A protein [Source:XXX;Acc:XXXXXX],sp|AAAAA|XXXXX_YYYYY,,A protein OS=XXX OX=00000 GN=XXX PE=2 SV=1,XXX1,XXX_A,A protein [Source:XXX;Acc:XXXXXX],,
 B,XXX2,XXX_B,B protein [Source:XXX;Acc:XXXXXX],sp|BBBBB|XXXXX_YYYYY,ABC,B protein OS=YYY OX=00000 GN=XXX PE=3 SV=1,XXX2,non,B protein [Source:XXX;Acc:XXXXXX],PF00000.00;  PF111111.1,AAA; BBB
 C,XXX3,XXX_C,C protein [Source:XXX;Acc:XXXXXX],sp|CCCCC|XXXXX_YYYYY,,C protein  OS=YYY OX=00000 GN=XXX PE=5 SV=1,XXX3,non,non-available,PF00000.00;  PF111111.1,AAA; BBB
