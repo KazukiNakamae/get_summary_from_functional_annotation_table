@@ -1,6 +1,7 @@
 import pandas as pd
 import sys
 import re
+import operator
 from collections import defaultdict
 
 def count_genes(input_file, output_file):
@@ -39,21 +40,27 @@ def count_genes(input_file, output_file):
     # UniProtKB-gsymbol列の文字列解析
     os_counts = defaultdict(int)
     os_counts["Others"] = 0
+    method = "organism"
     for uniprot_gdescription in df.dropna(subset=['UniProtKB-ID'])['UniProtKB-gdescription']:
         match = re.search(r'OS=(.+)\sOX=.+PE=([1-5])', str(uniprot_gdescription))
         if match:
-            if match.group(2) == "1":
-                os_counts["PE=1:'Experimental evidence at protein level' [" + match.group(1) + "]"] += 1
-            elif match.group(2) == "2":
-                os_counts["PE=2:'Experimental evidence at transcript level' [" + match.group(1) + "]"] += 1
-            elif match.group(2) == "3":
-                os_counts["PE=3:'Protein inferred from homology' [" + match.group(1) + "]"] += 1
-            elif match.group(2) == "4":
-                os_counts["PE=4:'Protein predicted' [" + match.group(1) + "]"] += 1
-            elif match.group(2) == "5":
-                os_counts["PE=5:'Protein uncertain' [" + match.group(1) + "]"] += 1                
+            if method == "organism":
+                os_counts[match.group(1)] += 1
+            elif method == "organism_PF":
+                # PFごとにカウントする方法（かなり数が多くなってしまい可読性が悪くなるので不採用）
+                if match.group(2) == "1":
+                    os_counts["PE=1:'Experimental evidence at protein level' [" + match.group(1) + "]"] += 1
+                elif match.group(2) == "2":
+                    os_counts["PE=2:'Experimental evidence at transcript level' [" + match.group(1) + "]"] += 1
+                elif match.group(2) == "3":
+                    os_counts["PE=3:'Protein inferred from homology' [" + match.group(1) + "]"] += 1
+                elif match.group(2) == "4":
+                    os_counts["PE=4:'Protein predicted' [" + match.group(1) + "]"] += 1
+                elif match.group(2) == "5":
+                    os_counts["PE=5:'Protein uncertain' [" + match.group(1) + "]"] += 1                
         else:
             os_counts["Others"] += 1
+    os_counts = dict(sorted(os_counts.items(), key=operator.itemgetter(1), reverse=True))
     temp_count = os_counts.pop("Others")
     os_counts["Others"] = temp_count
     
