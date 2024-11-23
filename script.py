@@ -33,7 +33,29 @@ def count_genes(input_file, output_file):
                         characterized_counts[prefix]["Non-characterized"] += 1
                     else:
                         characterized_counts[prefix]["Less-characterized"] += 1
-    
+
+    # その他ID列を自動検出してカウント
+    for column in df.columns:
+        match = re.match(r'^(.*)-ReferenceID$', column)
+        if match:
+            prefix = match.group(1)
+            counts[prefix] = df[column].notna().sum()
+            
+            gsymbol_col = f"{prefix}-gsymbol"
+            gdescription_col = f"{prefix}-gdescription"
+            
+            if gsymbol_col in df.columns and gdescription_col in df.columns:
+                for idx, row in df[df[column].notna()].iterrows():
+                    gsymbol = row[gsymbol_col]
+                    gdescription = row[gdescription_col]
+                    
+                    if gsymbol != "non" and gdescription != "non-available":
+                        characterized_counts[prefix]["Characterized"] += 1
+                    elif gsymbol == "non" and gdescription == "non-available":
+                        characterized_counts[prefix]["Non-characterized"] += 1
+                    else:
+                        characterized_counts[prefix]["Less-characterized"] += 1
+
     # UniProtKB-IDのカウント
     uniprotkb_count = df['UniProtKB-ID'].notna().sum()
 

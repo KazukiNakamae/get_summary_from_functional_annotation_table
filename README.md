@@ -20,7 +20,7 @@ A,,,,,,,,,,,
 #### Run
 
 ```bash
-docker run --rm -v $(pwd):/mnt/data kazukinakamae/annotation-counter:v1.0 /mnt/data/input.csv /mnt/data/output.csv;
+docker run --rm -v $(pwd):/mnt/data kazukinakamae/annotation-counter:v1.1 /mnt/data/input.csv /mnt/data/output.csv;
 ```
 
 #### Output

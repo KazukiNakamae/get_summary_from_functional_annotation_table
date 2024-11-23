@@ -1,0 +1,2 @@
+sudo docker build -t kazukinakamae/annotation-counter:v1.1 --platform linux/amd64 .;
+docker push kazukinakamae/annotation-counter:v1.1;
