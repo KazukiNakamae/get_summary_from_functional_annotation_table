@@ -88,10 +88,11 @@ def count_genes(input_file, output_file):
     
     # 少なくとも一つのカテゴリに含まれるもののカウント
     ens_columns = [col for col in df.columns if re.match(r'^(.*)-ENSPID$', col)]
-    at_least_one_count = df[ens_columns + ['UniProtKB-ID']].notna().any(axis=1).sum()
+    ref_columns = [col for col in df.columns if re.match(r'^(.*)-ReferenceID$', col)]
+    at_least_one_count = df[ens_columns + ref_columns + ['UniProtKB-ID']].notna().any(axis=1).sum()
 
     # Protein domainに含まれるもののカウント
-    protein_domain_count = df[(df[ens_columns + ['UniProtKB-ID']].isna().all(axis=1)) & (df['Pfam-IDs'].notna())].shape[0]
+    protein_domain_count = df[(df[ens_columns + ref_columns + ['UniProtKB-ID']].isna().all(axis=1)) & (df['Pfam-IDs'].notna())].shape[0]
 
     # Total genes with protein-level annotationのカウント
     total_protein_annotation_count = at_least_one_count + protein_domain_count
